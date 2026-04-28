@@ -2,6 +2,7 @@ data/
 training_data/
 .git/
 __pycache__/
+.venv/
+venv/
 *.mp4
-*.png
-*.jpg
+*.mov
