@@ -1,0 +1,7 @@
+data/
+training_data/
+.git/
+__pycache__/
+*.mp4
+*.png
+*.jpg
