@@ -3,8 +3,22 @@ import mediapipe as mp
 import numpy as np
 import time
 from sklearn.neighbors import KNeighborsClassifier
-import pickle
+# Inside your ASLRecognizer class (usually in __init__)
 import os
+import pickle
+
+# This tells the script to look in its own folder
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Update the path to point to the folder you created in the training script
+model_path = os.path.join(BASE_DIR, 'models', 'asl_model.pkl')
+
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        self.model = pickle.load(f)
+else:
+    # On Vercel, it's better to raise an error if the model is missing
+    print(f"Error: Could not find model at {model_path}")
 
 class ASLRecognizer:
     def __init__(self):
